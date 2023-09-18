@@ -86,6 +86,39 @@
         .hidden {
             display: none;
         }
+
+        #progress-container {
+            width: 100%;
+            background-color: #f3f3f3;
+            margin-top: 20px;
+        }
+
+        #progress-bar {
+            width: 0%;
+            height: 30px;
+            background-color: #4CAF50;
+            text-align: center;
+            line-height: 30px;
+            color: white;
+        }
+
+        .role-bar {
+            width: 0%;
+            height: 30px;
+            background-color: #4CAF50;
+            margin-top: 10px;
+            position: relative;
+        }
+
+        .role-bar span {
+            position: absolute;
+            left: 10px;
+            top: 50%;
+            transform: translateY(-50%);
+            color: black;
+            width: 400px;
+
+        }
     </style>
 </head>
 
@@ -94,6 +127,23 @@
         <h1>Role Quiz</h1>
 
         <p>Find out which role suits you best!</p>
+
+
+        <div id="progress-container">
+            <div id="progress-bar"></div>
+        </div>
+        <div id="role-bars">
+            <div class="role-bar" data-role="Agile & Delivery Leadership"><span>Agile & Delivery Leadership</span></div>
+            <div class="role-bar" data-role="Quality Assurance"><span>Quality Assurance</span></div>
+            <div class="role-bar" data-role="Software Engineer"><span>Software Engineer</span></div>
+            <div class="role-bar" data-role="Product & Requirements Management"><span>Product & Requirements
+                    Management</span>
+            </div>
+            <div class="role-bar" data-role="User Centered Design"><span>User Centered Design</span></div>
+            <div class="role-bar" data-role="IT Support & Access Management"><span>IT Support & Access Management</span>
+            </div>
+        </div>
+
     </header>
 
     <main>
@@ -116,8 +166,8 @@
                 "statement": "Do you like to listen and ask questions?",
                 "options": {
                     "Yes": {
-                        "Agile Coach": 2,
-                        "Product Manager": 1
+                        "Agile & Delivery Leadership": 2,
+                        "Product & Requirements Management": 1
                     },
                     "No": {
                         "Software Engineer": 1
@@ -128,12 +178,12 @@
                 "statement": "Are you comfortable with ambiguity?",
                 "options": {
                     "Yes": {
-                        "Agile Coach": 2,
-                        "Product Manager": 1
+                        "Agile & Delivery Leadership": 2,
+                        "Product & Requirements Management": 1
                     },
                     "No": {
                         "Software Engineer": 1,
-                        "QA Manager": 1
+                        "Quality Assurance": 1
                     }
                 }
             },
@@ -141,12 +191,12 @@
                 "statement": "Can you facilitate group sessions using techniques to mitigate social biases?",
                 "options": {
                     "Yes": {
-                        "Agile Coach": 2,
-                        "Business Analyst": 1
+                        "Agile & Delivery Leadership": 2,
+                        "Product & Requirements Management": 1
                     },
                     "No": {
                         "Software Engineer": 1,
-                        "IT Service Desk": 1
+                        "IT Support & Access Management": 1
                     }
                 }
             },
@@ -154,12 +204,11 @@
                 "statement": "Can you present your findings in a way to make it understandable to your audience?",
                 "options": {
                     "Yes": {
-                        "Business Analyst": 2,
-                        "Product Manager": 1
+                        "Product & Requirements Management": 2
                     },
                     "No": {
                         "Software Engineer": 1,
-                        "QA Manager": 1
+                        "Quality Assurance": 1
                     }
                 }
             },
@@ -167,12 +216,12 @@
                 "statement": "Are you eager to continually improve your skills?",
                 "options": {
                     "Yes": {
-                        "Agile Coach": 2,
+                        "Agile & Delivery Leadership": 2,
                         "Software Engineer": 1
                     },
                     "No": {
-                        "IT Service Desk": 1,
-                        "Delivery Lead": 1
+                        "IT Support & Access Management": 1,
+                        "Agile & Delivery Leadership": 1
                     }
                 }
             },
@@ -180,12 +229,12 @@
                 "statement": "Do you have an eye for detail?",
                 "options": {
                     "Yes": {
-                        "QA Manager": 2,
+                        "Quality Assurance": 2,
                         "User Centered Design": 1
                     },
                     "No": {
                         "Software Engineer": 1,
-                        "Agile Coach": 1
+                        "Agile & Delivery Leadership": 1
                     }
                 }
             },
@@ -194,11 +243,10 @@
                 "options": {
                     "Yes": {
                         "Software Engineer": 2,
-                        "QA Manager": 1
+                        "Quality Assurance": 1
                     },
                     "No": {
-                        "Business Analyst": 1,
-                        "Product Manager": 1
+                        "Product & Requirements Management": 1
                     }
                 }
             },
@@ -207,11 +255,10 @@
                 "options": {
                     "Yes": {
                         "Software Engineer": 2,
-                        "IT Service Desk": 1
+                        "IT Support & Access Management": 1
                     },
                     "No": {
-                        "Agile Coach": 1,
-                        "Delivery Lead": 1
+                        "Agile & Delivery Leadership": 1
                     }
                 }
             },
@@ -219,12 +266,12 @@
                 "statement": "Are you good at thinking of the worst case scenario and how to avoid it?",
                 "options": {
                     "Yes": {
-                        "QA Manager": 2,
-                        "Delivery Lead": 1
+                        "Quality Assurance": 2,
+                        "Agile & Delivery Leadership": 1
                     },
                     "No": {
                         "Software Engineer": 1,
-                        "Product Manager": 1
+                        "Product & Requirements Management": 1
                     }
                 }
             },
@@ -233,11 +280,11 @@
                 "options": {
                     "Yes": {
                         "Software Engineer": 2,
-                        "QA Manager": 1
+                        "Quality Assurance": 1
                     },
                     "No": {
-                        "Business Analyst": 1,
-                        "Agile Coach": 1
+                        "Product & Requirements Management": 1,
+                        "Agile & Delivery Leadership": 1
                     }
                 }
             },
@@ -246,11 +293,11 @@
                 "options": {
                     "Yes": {
                         "User Centered Design": 2,
-                        "Product Manager": 1
+                        "Product & Requirements Management": 1
                     },
                     "No": {
                         "Software Engineer": 1,
-                        "QA Manager": 1
+                        "Quality Assurance": 1
                     }
                 }
             },
@@ -258,8 +305,8 @@
                 "statement": "Do you observe things closely and give honest feedback?",
                 "options": {
                     "Yes": {
-                        "Business Analyst": 2,
-                        "QA Manager": 1
+                        "Product & Requirements Management": 2,
+                        "Quality Assurance": 1
                     },
                     "No": {
                         "Software Engineer": 1
@@ -274,7 +321,7 @@
                         "User Centered Design": 1
                     },
                     "No": {
-                        "IT Service Desk": 1
+                        "IT Support & Access Management": 1
                     }
                 }
             },
@@ -282,10 +329,10 @@
                 "statement": "Do you always ask 'why'?",
                 "options": {
                     "Yes": {
-                        "Business Analyst": 2
+                        "Product & Requirements Management": 2
                     },
                     "No": {
-                        "Delivery Lead": 1
+                        "Agile & Delivery Leadership": 1
                     }
                 }
             },
@@ -293,8 +340,8 @@
                 "statement": "Do you like to organize and bring order to things?",
                 "options": {
                     "Yes": {
-                        "Product Manager": 2,
-                        "Delivery Lead": 1
+                        "Product & Requirements Management": 2,
+                        "Agile & Delivery Leadership": 1
                     },
                     "No": {
                         "Software Engineer": 1
@@ -306,10 +353,10 @@
                 "options": {
                     "Yes": {
                         "Software Engineer": 2,
-                        "Identity Access Manager": 1
+                        "IT Support & Access Management": 1
                     },
                     "No": {
-                        "Agile Coach": 1
+                        "Agile & Delivery Leadership": 1
                     }
                 }
             },
@@ -317,8 +364,7 @@
                 "statement": "Do you enjoy interacting with diverse groups of people?",
                 "options": {
                     "Yes": {
-                        "Product Manager": 2,
-                        "Business Analyst": 1
+                        "Product & Requirements Management": 2
                     },
                     "No": {
                         "Software Engineer": 1
@@ -329,11 +375,10 @@
                 "statement": "Can you give constructive and positive feedback?",
                 "options": {
                     "Yes": {
-                        "Agile Coach": 2,
-                        "Delivery Lead": 1
+                        "Agile & Delivery Leadership": 2
                     },
                     "No": {
-                        "IT Service Desk": 1
+                        "IT Support & Access Management": 1
                     }
                 }
             },
@@ -341,8 +386,8 @@
                 "statement": "Do you like analyzing data?",
                 "options": {
                     "Yes": {
-                        "Business Analyst": 2,
-                        "QA Manager": 1
+                        "Product & Requirements Management": 2,
+                        "Quality Assurance": 1
                     },
                     "No": {
                         "Software Engineer": 1
@@ -357,7 +402,7 @@
                         "Software Engineer": 1
                     },
                     "No": {
-                        "IT Service Desk": 1
+                        "IT Support & Access Management": 1
                     }
                 }
             },
@@ -366,10 +411,10 @@
                 "options": {
                     "Yes": {
                         "Software Engineer": 2,
-                        "QA Manager": 1
+                        "Quality Assurance": 1
                     },
                     "No": {
-                        "Product Manager": 1
+                        "Product & Requirements Management": 1
                     }
                 }
             },
@@ -377,8 +422,7 @@
                 "statement": "Do you enjoy helping and teaching others?",
                 "options": {
                     "Yes": {
-                        "Agile Coach": 2,
-                        "Delivery Lead": 1
+                        "Agile & Delivery Leadership": 2
                     },
                     "No": {
                         "Software Engineer": 1
@@ -390,7 +434,7 @@
                 "options": {
                     "Yes": {
                         "Software Engineer": 2,
-                        "Identity Access Manager": 1
+                        "IT Support & Access Management": 1
                     },
                     "No": {
                         "User Centered Design": 1
@@ -401,8 +445,8 @@
                 "statement": "Can you identify and recommend improvements?",
                 "options": {
                     "Yes": {
-                        "QA Manager": 2,
-                        "Business Analyst": 1
+                        "Quality Assurance": 2,
+                        "Product & Requirements Management": 1
                     },
                     "No": {
                         "Software Engineer": 1
@@ -413,8 +457,8 @@
                 "statement": "Do you enjoy collaborating with others?",
                 "options": {
                     "Yes": {
-                        "Agile Coach": 2,
-                        "Product Manager": 1
+                        "Agile & Delivery Leadership": 2,
+                        "Product & Requirements Management": 1
                     },
                     "No": {
                         "Software Engineer": 1
@@ -426,10 +470,10 @@
                 "options": {
                     "Yes": {
                         "Software Engineer": 2,
-                        "QA Manager": 1
+                        "Quality Assurance": 1
                     },
                     "No": {
-                        "Product Manager": 1
+                        "Product & Requirements Management": 1
                     }
                 }
             },
@@ -441,7 +485,7 @@
                         "User Centered Design": 1
                     },
                     "No": {
-                        "IT Service Desk": 1
+                        "IT Support & Access Management": 1
                     }
                 }
             },
@@ -450,22 +494,22 @@
                 "options": {
                     "Yes": {
                         "Software Engineer": 2,
-                        "QA Manager": 1
+                        "Quality Assurance": 1
                     },
                     "No": {
-                        "Agile Coach": 1
+                        "Agile & Delivery Leadership": 1
                     }
                 }
             }, {
                 "statement": "Do you enjoy setting and achieving milestones in a project?",
                 "options": {
                     "Yes": {
-                        "Delivery Lead": 2,
-                        "Product Manager": 1
+                        "Agile & Delivery Leadership": 2,
+                        "Product & Requirements Management": 1
                     },
                     "No": {
                         "Software Engineer": 1,
-                        "IT Service Desk": 1
+                        "IT Support & Access Management": 1
                     }
                 }
             },
@@ -474,11 +518,11 @@
                 "options": {
                     "Yes": {
                         "User Centered Design": 2,
-                        "Product Manager": 1
+                        "Product & Requirements Management": 1
                     },
                     "No": {
                         "Software Engineer": 1,
-                        "QA Manager": 1
+                        "Quality Assurance": 1
                     }
                 }
             },
@@ -486,11 +530,11 @@
                 "statement": "Do you enjoy ensuring that IT systems are up and running smoothly?",
                 "options": {
                     "Yes": {
-                        "IT Service Desk": 2
+                        "IT Support & Access Management": 2
                     },
                     "No": {
                         "Software Engineer": 1,
-                        "Agile Coach": 1
+                        "Agile & Delivery Leadership": 1
                     }
                 }
             },
@@ -498,7 +542,7 @@
                 "statement": "Are you interested in managing user identities and access rights?",
                 "options": {
                     "Yes": {
-                        "Identity Access Manager": 2
+                        "IT Support & Access Management": 2
                     },
                     "No": {
                         "Software Engineer": 1,
@@ -510,12 +554,12 @@
                 "statement": "Do you like to ensure that software releases meet quality standards?",
                 "options": {
                     "Yes": {
-                        "QA Manager": 2,
-                        "Testing": 1
+                        "Quality Assurance": 2,
+
                     },
                     "No": {
                         "Software Engineer": 1,
-                        "Agile Coach": 1
+                        "Agile & Delivery Leadership": 1
                     }
                 }
             },
@@ -523,12 +567,12 @@
                 "statement": "Do you enjoy facilitating workshops and brainstorming sessions?",
                 "options": {
                     "Yes": {
-                        "Agile Coach": 2,
-                        "Business Analyst": 1
+                        "Agile & Delivery Leadership": 2,
+                        "Product & Requirements Management": 1
                     },
                     "No": {
                         "Software Engineer": 1,
-                        "QA Manager": 1
+                        "Quality Assurance": 1
                     }
                 }
             },
@@ -540,8 +584,8 @@
                         "User Centered Design": 1
                     },
                     "No": {
-                        "IT Service Desk": 1,
-                        "Delivery Lead": 1
+                        "IT Support & Access Management": 1,
+                        "Agile & Delivery Leadership": 1
                     }
                 }
             },
@@ -549,8 +593,8 @@
                 "statement": "Are you good at managing and mitigating risks?",
                 "options": {
                     "Yes": {
-                        "Delivery Lead": 2,
-                        "QA Manager": 1
+                        "Agile & Delivery Leadership": 2,
+                        "Quality Assurance": 1
                     },
                     "No": {
                         "Software Engineer": 1,
@@ -562,12 +606,11 @@
                 "statement": "Do you enjoy understanding and mapping out business processes?",
                 "options": {
                     "Yes": {
-                        "Business Analyst": 2,
-                        "Product Manager": 1
+                        "Product & Requirements Management": 2
                     },
                     "No": {
                         "Software Engineer": 1,
-                        "QA Manager": 1
+                        "Quality Assurance": 1
                     }
                 }
             },
@@ -575,11 +618,11 @@
                 "statement": "Do you like to ensure that users have the right permissions to access specific resources?",
                 "options": {
                     "Yes": {
-                        "Identity Access Manager": 2
+                        "IT Support & Access Management": 2
                     },
                     "No": {
                         "Software Engineer": 1,
-                        "Agile Coach": 1
+                        "Agile & Delivery Leadership": 1
                     }
                 }
             },
@@ -591,7 +634,7 @@
                     },
                     "No": {
                         "Software Engineer": 1,
-                        "QA Manager": 1
+                        "Quality Assurance": 1
                     }
                 }
             },
@@ -599,12 +642,11 @@
                 "statement": "Do you enjoy coordinating and managing project deliveries?",
                 "options": {
                     "Yes": {
-                        "Delivery Lead": 2,
-                        "Agile Coach": 1
+                        "Agile & Delivery Leadership": 2
                     },
                     "No": {
                         "Software Engineer": 1,
-                        "IT Service Desk": 1
+                        "IT Support & Access Management": 1
                     }
                 }
             }
@@ -636,6 +678,29 @@
 
         const roleSpan = document.getElementById("role");
 
+        let totalQuestions = questions.length; // Store the total number of questions
+        let answeredQuestions = 0; // Store the number of questions answered
+
+        function updateProgressBar() {
+            answeredQuestions++;
+            let progressPercentage = (answeredQuestions / totalQuestions) * 100;
+            document.getElementById("progress-bar").style.width = progressPercentage + "%";
+        }
+
+        function updateRoleBars() {
+            for (let role in rolePoints) {
+                let roleBar = document.querySelector(`.role-bar[data-role="${role}"]`);
+                let maxPointsForRole = totalQuestions * 2; // Assuming max 2 points can be earned for a role per question
+                let rolePercentage = (rolePoints[role] / maxPointsForRole) * 100;
+                roleBar.style.width = rolePercentage + "%";
+            }
+        }
+
+
+
+
+
+
         function getNextQuestion() {
             if (questions.length === 0) {
                 displayResult();
@@ -656,6 +721,9 @@
                     }
 
                     getNextQuestion();
+
+                    updateProgressBar();
+                    updateRoleBars();
                 };
             }
         }
