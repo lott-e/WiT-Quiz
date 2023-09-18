@@ -1,0 +1,686 @@
+<!DOCTYPE html>
+
+<html lang="en-US">
+
+
+<head>
+
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+    <title>Role Quiz</title>
+
+    <style>
+        body {
+
+            margin:
+                1rem auto;
+
+            padding:
+                3rem;
+
+            font-family:
+                sans-serif;
+
+        }
+
+
+
+        header {
+
+            width:
+                50%;
+
+            margin:
+                1em auto;
+
+        }
+
+
+
+        main {
+
+            min-width:
+                25rem;
+
+            max-width:
+                50%;
+
+            margin:
+                0px auto;
+
+            display:
+                flex;
+
+            flex-direction:
+                column;
+
+        }
+
+
+
+        #statement {
+
+            border:
+                1px solid black;
+
+            border-radius:
+                0.5rem;
+
+            box-shadow:
+                5px 5px 5px gray;
+
+            padding:
+                1rem;
+
+            font-size:
+                x-large;
+
+            text-align:
+                center;
+
+            margin:
+                1rem 0px;
+
+            min-height:
+                2em;
+
+        }
+
+
+
+        #explanation,
+
+        #score {
+
+            padding:
+                1rem;
+
+            text-align:
+                center;
+
+        }
+
+
+
+        #options {
+
+            width:
+                100%;
+
+            display:
+                flex;
+
+            flex-direction:
+                column;
+
+        }
+
+
+
+        button {
+
+            padding:
+                0.5rem;
+
+            font-size:
+                medium;
+
+            border-radius:
+                5px;
+
+        }
+
+
+
+        .correct {
+
+            background-color:
+                lightgreen;
+
+        }
+
+
+
+        .incorrect {
+
+            background-color:
+                lightpink;
+
+        }
+
+
+
+        .hidden {
+
+            display:
+                none;
+
+        }
+    </style>
+
+</head>
+
+
+
+<body>
+
+    <header>
+
+        <h1>Role Quiz</h1>
+
+        <p>Find out which role suits you best!</p>
+
+    </header>
+
+
+
+    <main>
+
+        <div id="statement"></div>
+
+        <div id="options">
+
+            <button name="Yes" value="Yes">Yes</button>
+
+            <button name="No" value="No">No</button>
+
+        </div>
+
+        <div id="result" class="hidden">Your
+            best-suited role is: <span id="role"></span></div>
+
+    </main>
+
+
+
+    <script type="text/javascript">
+
+        const
+            questions = [
+
+                {
+
+                    "statement":
+                        "Do you enjoy leading agile teams and facilitating scrum ceremonies?",
+
+                    "options":
+                    {
+
+                        "Yes":
+                        {
+
+                            "Agile Coach":
+                                2,
+
+                            "Delivery Lead":
+                                1
+
+                        },
+
+                        "No":
+                        {
+
+                            "Software Engineer":
+                                1,
+
+                            "IT Service Desk":
+                                1
+
+                        }
+
+                    }
+
+                },
+
+                {
+
+                    "statement":
+                        "Are you passionate about ensuring product quality and setting testing standards?",
+
+                    "options":
+                    {
+
+                        "Yes":
+                        {
+
+                            "QA Manager":
+                                2,
+
+                            "Testing":
+                                2
+
+                        },
+
+                        "No":
+                        {
+
+                            "Agile Coach":
+                                1,
+
+                            "Software Engineer":
+                                1
+
+                        }
+
+                    }
+
+                },
+
+                {
+
+                    "statement":
+                        "Do you enjoy gathering requirements and interacting with stakeholders?",
+
+                    "options":
+                    {
+
+                        "Yes":
+                        {
+
+                            "Business Analyst":
+                                2,
+
+                            "Product Manager":
+                                2
+
+                        },
+
+                        "No":
+                        {
+
+                            "Software Engineer":
+                                1,
+
+                            "User Centered Design":
+                                1
+
+                        }
+
+                    }
+
+                },
+
+                {
+
+                    "statement":
+                        "Are you interested in designing user interfaces and improving user experience?",
+
+                    "options":
+                    {
+
+                        "Yes":
+                        {
+
+                            "User Centered Design":
+                                2
+
+                        },
+
+                        "No":
+                        {
+
+                            "Software Engineer":
+                                1,
+
+                            "IT Service Desk":
+                                1
+
+                        }
+
+                    }
+
+                },
+
+                {
+
+                    "statement":
+                        "Do you have experience with managing user access and permissions in IT systems?",
+
+                    "options":
+                    {
+
+                        "Yes":
+                        {
+
+                            "Identity Access Manager":
+                                2
+
+                        },
+
+                        "No":
+                        {
+
+                            "Software Engineer":
+                                1,
+
+                            "Agile Coach":
+                                1
+
+                        }
+
+                    }
+
+                },
+
+                {
+
+                    "statement":
+                        "Do you enjoy coding and building software applications?",
+
+                    "options":
+                    {
+
+                        "Yes":
+                        {
+
+                            "Software Engineer":
+                                2
+
+                        },
+
+                        "No":
+                        {
+
+                            "Business Analyst":
+                                1,
+
+                            "Product Manager":
+                                1
+
+                        }
+
+                    }
+
+                },
+
+                {
+
+                    "statement":
+                        "Are you skilled in troubleshooting IT-related issues and providing technical support?",
+
+                    "options":
+                    {
+
+                        "Yes":
+                        {
+
+                            "IT Service Desk":
+                                2
+
+                        },
+
+                        "No":
+                        {
+
+                            "Software Engineer":
+                                1,
+
+                            "Agile Coach":
+                                1
+
+                        }
+
+                    }
+
+                },
+
+                {
+
+                    "statement":
+                        "Do you have experience in managing product roadmaps and prioritizing features?",
+
+                    "options":
+                    {
+
+                        "Yes":
+                        {
+
+                            "Product Manager":
+                                2
+
+                        },
+
+                        "No":
+                        {
+
+                            "Software Engineer":
+                                1,
+
+                            "Testing":
+                                1
+
+                        }
+
+                    }
+
+                },
+
+                {
+
+                    "statement":
+                        "Do you enjoy analyzing business processes and identifying areas for improvement?",
+
+                    "options":
+                    {
+
+                        "Yes":
+                        {
+
+                            "Business Analyst":
+                                2
+
+                        },
+
+                        "No":
+                        {
+
+                            "Software Engineer":
+                                1,
+
+                            "User Centered Design":
+                                1
+
+                        }
+
+                    }
+
+                },
+
+                {
+
+                    "statement":
+                        "Are you passionate about ensuring that IT systems are secure and users have appropriate access?",
+
+                    "options":
+                    {
+
+                        "Yes":
+                        {
+
+                            "Identity Access Manager":
+                                2
+
+                        },
+
+                        "No":
+                        {
+
+                            "Software Engineer":
+                                1,
+
+                            "Agile Coach":
+                                1
+
+                        }
+
+                    }
+
+                },
+
+            ];
+
+
+
+        let
+            rolePoints =
+            {
+
+                "Agile & Delivery Leadership":
+                    0,
+                //Agile Coach and Delivery Lead
+
+                "Quality Assurance":
+                    0,
+                // QA Manager and Testing
+
+                "Software Engineer":
+                    0,
+
+                "Product & Requirements Management":
+                    0,
+                // Business Analyst and Product Manager:
+
+                "User Centered Design":
+                    0,
+
+                "IT Support & Access Management":
+                    0
+                //IT Service Desk and Identity Access Manager
+
+            };
+
+
+
+        const
+            statementDiv =
+                document.getElementById("statement");
+
+        const
+            optionsDiv =
+                document.getElementById("options");
+
+        const
+            resultDiv =
+                document.getElementById("result");
+
+        const
+            roleSpan =
+                document.getElementById("role");
+
+
+
+        function
+            getNextQuestion() {
+
+            if (questions.length
+                ===
+                0) {
+
+                displayResult();
+
+                return;
+
+            }
+
+
+
+            let
+                question =
+                    questions.shift();
+
+            statementDiv.textContent
+                =
+                question.statement;
+
+
+
+            for (let
+                btn
+                of optionsDiv.children) {
+
+                btn.onclick
+                    =
+                    function () {
+
+                        let
+                            answer =
+                                this.value;
+
+                        for (let
+                            role
+                            in question.options[answer]) {
+
+                            rolePoints[role]
+                                +=
+                                question.options[answer][role];
+
+                        }
+
+                        getNextQuestion();
+
+                    };
+
+            }
+
+        }
+
+
+
+        function
+            displayResult() {
+
+            let
+                maxPoints =
+                    0;
+
+            let
+                finalRole =
+                    "";
+
+
+
+            for (let
+                role
+                in rolePoints) {
+
+                if (rolePoints[role]
+                    >
+                    maxPoints) {
+
+                    maxPoints
+                        = rolePoints[role];
+
+                    finalRole
+                        = role;
+
+                }
+
+            }
+
+
+
+            roleSpan.textContent
+                =
+                finalRole;
+
+            optionsDiv.style.display
+                =
+                "none";
+
+            resultDiv.style.display
+                =
+                "block";
+
+        }
+
+
+
+        getNextQuestion();
+
+    </script>
+
+</body>
+
+
+
+</html>
